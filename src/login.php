@@ -1,8 +1,11 @@
 <?php
 
-if (is_user_logged_in()) {
-    //redirect_to('dashboard_user.php');
-}
+// require_once "auth.php";
+// require_once "helpers.php";
+
+// if (is_user_logged_in()) {
+//     redirect_to('dashboard_user.php');
+// }
 
 $inputs = [];
 $errors = [];
@@ -39,10 +42,10 @@ if (is_post_request()) {
         echo "User not found.";
     } elseif ($username['is_admin'] == 1) {
         $_SESSION['username'] = $username['username'];
-        redirect_to('dashboard_admin.php');
+        redirect_to('public/dashboard_admin.php');
     } else {
         $_SESSION['username'] = $username['username'];
-        redirect_to('dashboard_user.php');
+        redirect_to('public/dashboard_user.php');
     }
 
 } else if (is_get_request()) {
